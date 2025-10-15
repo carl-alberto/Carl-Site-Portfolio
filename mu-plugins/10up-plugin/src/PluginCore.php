@@ -9,6 +9,7 @@ namespace TenUpPlugin;
 
 use TenupFramework\ModuleInitialization;
 use TenUpPlugin\PostTypes\Portfolio;
+use TenUpPlugin\PostTypes\Company;
 
 /**
  * PluginCore module.
@@ -28,9 +29,17 @@ class PluginCore {
 
 		// Register Portfolio post type
 		add_action('init', function() {
-			$demo = new Portfolio();
-			if ($demo->can_register()) {
-				$demo->register();
+			$portfolio = new Portfolio();
+			if ($portfolio->can_register()) {
+				$portfolio->register();
+			}
+		});
+
+		// Register Company post type
+		add_action('init', function() {
+			$company = new Company();
+			if ($company->can_register()) {
+				$company->register();
 			}
 		});
 
