@@ -10,6 +10,8 @@ namespace TenUpPlugin;
 use TenupFramework\ModuleInitialization;
 use TenUpPlugin\PostTypes\Portfolio;
 use TenUpPlugin\PostTypes\Company;
+use TenUpPlugin\PostTypes\Learning;
+use TenUpPlugin\PostTypes\Contribution;
 
 /**
  * PluginCore module.
@@ -40,6 +42,22 @@ class PluginCore {
 			$company = new Company();
 			if ($company->can_register()) {
 				$company->register();
+			}
+		});
+
+		// Register Learning post type
+		add_action('init', function() {
+			$learning = new Learning();
+			if ($learning->can_register()) {
+				$learning->register();
+			}
+		});
+
+		// Register Community Contribution post type
+		add_action('init', function() {
+			$contribution = new Contribution();
+			if ($contribution->can_register()) {
+				$contribution->register();
 			}
 		});
 
