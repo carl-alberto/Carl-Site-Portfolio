@@ -15,5 +15,10 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  // Use the project-local PHPCS and the 10up ruleset to avoid "Referenced sniff '10up-Default'" errors
+  "phpcs.enable": true,
+  "phpcs.executablePath": "${workspaceFolder}/phpcs-local",
+  "phpcs.standard": "wp-content/phpcs.xml",
+  "phpcs.showWarnings": true
 }

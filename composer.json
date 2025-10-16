@@ -36,6 +36,8 @@
   "scripts": {
     "lint": "./vendor/bin/phpcs --standard=./phpcs.xml",
     "lint-fix": "./vendor/bin/phpcbf --standard=./phpcs.xml",
+    "lint-local": "../phpcs-local --standard=./phpcs.xml",
+    "lint-fix-local": "../phpcbf-local --standard=./phpcs.xml",
     "static": [
       "Composer\\Config::disableProcessTimeout",
       "phpstan --memory-limit=1G"
