@@ -9,6 +9,9 @@ namespace TenUpPlugin\PostTypes;
 
 use TenupFramework\PostTypes\AbstractPostType;
 
+/**
+ * Registers the "Company" post type.
+ */
 class Company extends AbstractPostType {
 	/**
 	 * Get the post type name.

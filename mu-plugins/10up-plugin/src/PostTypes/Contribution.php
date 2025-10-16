@@ -9,6 +9,9 @@ namespace TenUpPlugin\PostTypes;
 
 use TenupFramework\PostTypes\AbstractPostType;
 
+/**
+ * Registers the "Contribution" post type.
+ */
 class Contribution extends AbstractPostType {
 	/**
 	 * Get the post type name.

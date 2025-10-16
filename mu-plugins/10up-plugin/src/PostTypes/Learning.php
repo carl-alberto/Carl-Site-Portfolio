@@ -9,6 +9,9 @@ namespace TenUpPlugin\PostTypes;
 
 use TenupFramework\PostTypes\AbstractPostType;
 
+/**
+ * Registers the "Learning" post type.
+ */
 class Learning extends AbstractPostType {
 	/**
 	 * Get the post type name.

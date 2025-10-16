@@ -69,7 +69,7 @@ class Portfolio extends AbstractPostType {
 			'portfolio-type',
 			'portfolio-tech',
 			'portfolio-client',
-			'portfolio-company'
+			'portfolio-company',
 		];
 	}
 
@@ -151,4 +151,3 @@ class Portfolio extends AbstractPostType {
 		);
 	}
 }
-
