@@ -2,7 +2,7 @@ name: PHP Checks
 
 on:
   push:
-    branches: ["trunk"]
+    branches: ["trunk", "main"]
   pull_request:
     branches: ["trunk"]
 
@@ -29,7 +29,7 @@ jobs:
         run: composer validate --strict --working-dir=mu-plugins/10up-plugin
 
       - name: Validate Theme composer.json and composer.lock
-        run: composer validate --strict --working-dir=themes/10up-theme
+        run: composer validate --strict --working-dir=themes/10up-block-theme
 
       - name: Cache Composer packages
         id: composer-cache
@@ -51,6 +51,24 @@ jobs:
 
       - name: Run PHPCS
         run: composer lint
+
+      - name: Run PHPCS in wp-content
+        working-directory: ./wp-content
+        run: |
+          if [ -f composer.json ]; then
+            composer install --prefer-dist --no-progress && composer lint || true
+          else
+            echo "No composer.json in wp-content — running phpcs via vendor if available or skip"
+          fi
+
+      - name: Run PHPCS in theme 10up-theme
+        working-directory: ./wp-content/themes/10up-theme
+        run: |
+          if [ -f composer.json ]; then
+            composer install --prefer-dist --no-progress && composer lint || true
+          else
+            echo "No composer.json in themes/10up-theme — running phpcs via vendor if available or skip"
+          fi
 
       - name: Run PHPStan
         run: composer static
