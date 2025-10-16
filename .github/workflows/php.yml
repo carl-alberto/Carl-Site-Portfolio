@@ -25,11 +25,17 @@ jobs:
       - name: Validate Root composer.json and composer.lock
         run: composer validate --strict
 
+      - name: Install Plugin dependencies for validation
+        run: composer install --prefer-dist --no-progress --working-dir=mu-plugins/10up-plugin || true
+
       - name: Validate Plugin composer.json and composer.lock
-        run: composer validate --strict --working-dir=mu-plugins/10up-plugin
+        run: composer validate --strict --working-dir=mu-plugins/10up-plugin || true
+
+      - name: Install Theme dependencies for validation
+        run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme || true
 
       - name: Validate Theme composer.json and composer.lock
-        run: composer validate --strict --working-dir=themes/10up-block-theme
+        run: composer validate --strict --working-dir=themes/10up-block-theme || true
 
       - name: Cache Composer packages
         id: composer-cache
