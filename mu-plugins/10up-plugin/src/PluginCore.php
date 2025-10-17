@@ -15,13 +15,11 @@ use TenUpPlugin\PostTypes\Contribution;
 
 /**
  * PluginCore module.
- *
- * @package TenUpPlugin
  */
 class PluginCore {
 
 	/**
-	 * Default setup routine
+	 * Default setup routine.
 	 *
 	 * @return void
 	 */
@@ -29,38 +27,49 @@ class PluginCore {
 		add_action( 'init', [ $this, 'i18n' ] );
 		add_action( 'init', [ $this, 'init' ], apply_filters( 'tenup_plugin_init_priority', 8 ) );
 
-		// Register Portfolio post type
-		add_action('init', function() {
-			$portfolio = new Portfolio();
-			if ($portfolio->can_register()) {
-				$portfolio->register();
+		// Register Portfolio post type.
+		add_action(
+			'init',
+			function () {
+				$portfolio = new Portfolio();
+				if ( $portfolio->can_register() ) {
+					$portfolio->register();
+				}
 			}
-		});
+		);
 
-		// Register Company post type
-		add_action('init', function() {
-			$company = new Company();
-			if ($company->can_register()) {
-				$company->register();
+		// Register Company post type.
+		add_action(
+			'init',
+			function () {
+				$company = new Company();
+				if ( $company->can_register() ) {
+					$company->register();
+				}
 			}
-		});
+		);
 
-		// Register Learning post type
-		add_action('init', function() {
-			$learning = new Learning();
-			if ($learning->can_register()) {
-				$learning->register();
+		// Register Learning post type.
+		add_action(
+			'init',
+			function () {
+				$learning = new Learning();
+				if ( $learning->can_register() ) {
+					$learning->register();
+				}
 			}
-		});
+		);
 
-		// Register Community Contribution post type
-		add_action('init', function() {
-			$contribution = new Contribution();
-			if ($contribution->can_register()) {
-				$contribution->register();
+		// Register Community Contribution post type.
+		add_action(
+			'init',
+			function () {
+				$contribution = new Contribution();
+				if ( $contribution->can_register() ) {
+					$contribution->register();
+				}
 			}
-		});
-
+		);
 
 		do_action( 'tenup_plugin_loaded' );
 	}
@@ -72,6 +81,7 @@ class PluginCore {
 	 */
 	public function i18n() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'tenup-plugin' );
+
 		load_textdomain( 'tenup-plugin', WP_LANG_DIR . '/tenup-plugin/tenup-plugin-' . $locale . '.mo' );
 		load_plugin_textdomain( 'tenup-plugin', false, plugin_basename( TENUP_PLUGIN_PATH ) . '/languages/' );
 	}
@@ -107,29 +117,30 @@ class PluginCore {
 		}
 
 		ModuleInitialization::instance()->init_classes( TENUP_PLUGIN_INC );
+
 		do_action( 'tenup_plugin_init' );
 	}
 
 	/**
-	 * Activate the plugin
+	 * Activate the plugin.
 	 *
 	 * @return void
 	 */
 	public function activate() {
-		// First load the init scripts in case any rewrite functionality is being loaded
+		// First load the init scripts in case any rewrite functionality is being loaded.
 		$this->init();
 		flush_rewrite_rules();
 	}
 
 	/**
-	 * Deactivate the plugin
+	 * Deactivate the plugin.
 	 *
-	 * Uninstall routines should be in uninstall.php
+	 * Uninstall routines should be in uninstall.php.
 	 *
 	 * @return void
 	 */
 	public function deactivate() {
-		// Do nothing.
+		// Intentionally left blank.
 	}
 
 	/**
@@ -140,6 +151,6 @@ class PluginCore {
 	 * @return false|\TenupFramework\ModuleInterface
 	 */
 	public static function get_module( $class_name ) {
-		return \TenupFramework\ModuleInitialization::get_module( $class_name );
+		return ModuleInitialization::get_module( $class_name );
 	}
 }

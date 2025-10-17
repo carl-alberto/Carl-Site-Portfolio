@@ -15,18 +15,48 @@ use TenupFramework\Taxonomies\AbstractTaxonomy;
  * Each term in this taxonomy is automatically created/updated/deleted to mirror a Company post.
  */
 class PortfolioCompany extends AbstractTaxonomy {
+
+	/**
+	 * Get the taxonomy name.
+	 *
+	 * @return string
+	 */
 	public function get_name() {
 		return 'portfolio-company';
 	}
+
+	/**
+	 * Get the singular taxonomy label.
+	 *
+	 * @return string
+	 */
 	public function get_singular_label() {
 		return esc_html__( 'Company', 'tenup-plugin' );
 	}
+
+	/**
+	 * Get the plural taxonomy label.
+	 *
+	 * @return string
+	 */
 	public function get_plural_label() {
 		return esc_html__( 'Companies', 'tenup-plugin' );
 	}
+
+	/**
+	 * Get the object type associated with the taxonomy.
+	 *
+	 * @return array
+	 */
 	public function get_object_type() {
 		return [ 'portfolio' ];
 	}
+
+	/**
+	 * Can the class be registered?
+	 *
+	 * @return bool
+	 */
 	public function can_register() {
 		return true;
 	}
@@ -155,7 +185,7 @@ class PortfolioCompany extends AbstractTaxonomy {
 			[
 				'post_type'      => 'company',
 				'post_status'    => 'any',
-				'posts_per_page' => -1,
+				'posts_per_page' => 10,
 				'fields'         => 'ids',
 			]
 		);
