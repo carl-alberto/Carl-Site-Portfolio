@@ -56,10 +56,10 @@ jobs:
         run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme
 
       - name: Run PHPCS in mu-plugin
-        run: composer lint -- wp-content/mu-plugins/10up-plugin/src
+        run: composer lint -- mu-plugins/10up-plugin/src
 
       - name: Run PHPCS in theme
-        run: composer lint -- wp-content/themes/10up-block-theme
+        run: composer lint -- themes/10up-block-theme
 
       - name: Run PHPStan
         run: composer static
