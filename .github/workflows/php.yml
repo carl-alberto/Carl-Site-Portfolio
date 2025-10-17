@@ -55,26 +55,11 @@ jobs:
       - name: Install Theme dependencies
         run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme
 
-      - name: Run PHPCS
-        run: composer lint
+      - name: Run PHPCS in mu-plugin
+        run: composer lint -- wp-content/mu-plugins/10up-plugin/src
 
-      - name: Run PHPCS in wp-content
-        working-directory: ./wp-content
-        run: |
-          if [ -f composer.json ]; then
-            composer install --prefer-dist --no-progress && composer lint || true
-          else
-            echo "No composer.json in wp-content — running phpcs via vendor if available or skip"
-          fi
-
-      - name: Run PHPCS in theme 10up-theme
-        working-directory: ./wp-content/themes/10up-theme
-        run: |
-          if [ -f composer.json ]; then
-            composer install --prefer-dist --no-progress && composer lint || true
-          else
-            echo "No composer.json in themes/10up-theme — running phpcs via vendor if available or skip"
-          fi
+      - name: Run PHPCS in theme
+        run: composer lint -- wp-content/themes/10up-block-theme
 
       - name: Run PHPStan
         run: composer static
