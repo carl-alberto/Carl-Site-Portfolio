@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "10up/portfolio-block",
+  "title": "Portfolio Block",
+  "category": "widgets",
+  "icon": "portfolio",
+  "description": "Displays portfolio items with title, image, and description.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "postsToShow": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "editorScript": "file:./index.js"
+}
