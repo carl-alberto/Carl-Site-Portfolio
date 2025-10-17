@@ -53,7 +53,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --working-dir=mu-plugins/10up-plugin
 
       - name: Install Theme dependencies
-        run: composer install --prefer-dist --no-progress --working-dir=themes/10up-theme
+        run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme
 
       - name: Run PHPCS
         run: composer lint
