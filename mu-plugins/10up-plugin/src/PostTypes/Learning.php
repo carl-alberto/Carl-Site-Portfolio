@@ -86,7 +86,7 @@ class Learning extends AbstractPostType {
 	/**
 	 * Register the Learning post type with block editor support.
 	 */
-	public function register() {
+	public function register(): bool {
 		register_post_type(
 			$this->get_name(),
 			[
@@ -98,12 +98,13 @@ class Learning extends AbstractPostType {
 				'taxonomies'   => $this->get_supported_taxonomies(),
 			]
 		);
+		return true;
 	}
 
 	/**
 	 * Register custom meta fields for Learning post type.
 	 */
-	public function register_meta_fields() {
+	public function register_meta_fields(): bool {
 		register_post_meta(
 			'learning',
 			'learning_type',
@@ -124,5 +125,7 @@ class Learning extends AbstractPostType {
 				'show_in_rest' => true,
 			]
 		);
+
+		return true;
 	}
 }

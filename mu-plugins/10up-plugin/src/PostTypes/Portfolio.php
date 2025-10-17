@@ -101,7 +101,7 @@ class Portfolio extends AbstractPostType {
 	/**
 	 * Register the Portfolio post type with block editor support.
 	 */
-	public function register() {
+	public function register(): bool {
 		register_post_type(
 			$this->get_name(),
 			[
@@ -113,12 +113,13 @@ class Portfolio extends AbstractPostType {
 				'taxonomies'   => $this->get_supported_taxonomies(),
 			]
 		);
+		return true;
 	}
 
 	/**
 	 * Register custom meta fields for Portfolio post type.
 	 */
-	public function register_meta_fields() {
+	public function register_meta_fields(): bool {
 		register_post_meta(
 			'portfolio',
 			'company',
@@ -149,5 +150,7 @@ class Portfolio extends AbstractPostType {
 				'show_in_rest' => true,
 			]
 		);
+
+		return true;
 	}
 }

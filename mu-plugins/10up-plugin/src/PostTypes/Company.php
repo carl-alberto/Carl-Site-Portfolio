@@ -75,9 +75,11 @@ class Company extends AbstractPostType {
 
 	/**
 	 * Register the Company post type with block editor support.
+	 *
+	 * @return bool True on success, false on failure.
 	 */
-	public function register() {
-		register_post_type(
+	public function register(): bool {
+		$result = register_post_type(
 			$this->get_name(),
 			[
 				'label'        => $this->get_plural_label(),
@@ -88,12 +90,15 @@ class Company extends AbstractPostType {
 				'taxonomies'   => $this->get_supported_taxonomies(),
 			]
 		);
+
+		return ! is_wp_error( $result );
 	}
+
 
 	/**
 	 * Register custom meta fields for Company post type.
 	 */
-	public function register_meta_fields() {
+	public function register_meta_fields():bool {
 		register_post_meta(
 			'company',
 			'company',
@@ -144,5 +149,7 @@ class Company extends AbstractPostType {
 				'show_in_rest' => true,
 			]
 		);
+
+		return true;
 	}
 }

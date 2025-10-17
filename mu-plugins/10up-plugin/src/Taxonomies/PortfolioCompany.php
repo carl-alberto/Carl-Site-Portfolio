@@ -66,7 +66,7 @@ class PortfolioCompany extends AbstractTaxonomy {
 	 *
 	 * Ensures  the choices in this taxonomy mirror the titles of Company posts.
 	 */
-	public function after_register() {
+	public function after_register(): void {
 		// Keep a term in this taxonomy for each Company post.
 		add_action( 'save_post_company', [ $this, 'sync_company_to_term' ], 10, 3 );
 
@@ -75,6 +75,8 @@ class PortfolioCompany extends AbstractTaxonomy {
 
 		// One-time backfill for existing companies.
 		add_action( 'init', [ $this, 'maybe_backfill_terms' ], 20 );
+
+		return;
 	}
 
 	/**
@@ -84,7 +86,7 @@ class PortfolioCompany extends AbstractTaxonomy {
 	 * @param \WP_Post $post    Post object.
 	 * @param bool     $update  Whether this is an existing post being updated.
 	 */
-	public function sync_company_to_term( $post_id, $post, $update ) {
+	public function sync_company_to_term( $post_id, $post, $update ): void {
 		if ( 'company' !== $post->post_type ) {
 			return;
 		}
@@ -121,6 +123,8 @@ class PortfolioCompany extends AbstractTaxonomy {
 
 		$term_id = (int) $result['term_id'];
 		add_term_meta( $term_id, '_company_post_id', (int) $post_id, true );
+
+		return;
 	}
 
 	/**
@@ -128,7 +132,7 @@ class PortfolioCompany extends AbstractTaxonomy {
 	 *
 	 * @param int $post_id Post ID being deleted.
 	 */
-	public function delete_term_for_company( $post_id ) {
+	public function delete_term_for_company( $post_id ): void {
 		if ( 'company' !== get_post_type( $post_id ) ) {
 			return;
 		}
@@ -137,13 +141,15 @@ class PortfolioCompany extends AbstractTaxonomy {
 		if ( $term && ! is_wp_error( $term ) ) {
 			wp_delete_term( $term->term_id, $this->get_name() );
 		}
+
+		return;
 	}
 
 	/**
 	 * Find the taxonomy term that maps to a given Company post id.
 	 *
 	 * @param int $post_id Company post ID.
-	 * @return \WP_Term|false
+	 * @return \WP_Term|\WP_Error|false
 	 */
 	protected function get_term_for_company( $post_id ) {
 		$terms = get_terms(
@@ -169,14 +175,16 @@ class PortfolioCompany extends AbstractTaxonomy {
 
 	/**
 	 * One-time backfill to ensure every existing Company has a matching term.
+	 *
+	 * @return void
 	 */
-	public function maybe_backfill_terms() {
+	public function maybe_backfill_terms(): void {
 		$flag_key = 'tenup_portfolio_company_terms_backfilled';
+
 		if ( get_option( $flag_key ) ) {
 			return;
 		}
 
-		// Only run in admin or CLI to avoid front-end overhead.
 		if ( ! is_admin() && ! defined( 'WP_CLI' ) ) {
 			return;
 		}
@@ -199,4 +207,6 @@ class PortfolioCompany extends AbstractTaxonomy {
 
 		update_option( $flag_key, time() );
 	}
+
+
 }
