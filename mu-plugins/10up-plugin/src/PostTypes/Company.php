@@ -98,7 +98,7 @@ class Company extends AbstractPostType {
 	/**
 	 * Register custom meta fields for Company post type.
 	 */
-	public function register_meta_fields():bool {
+	public function register_meta_fields(): bool {
 		register_post_meta(
 			'company',
 			'company',

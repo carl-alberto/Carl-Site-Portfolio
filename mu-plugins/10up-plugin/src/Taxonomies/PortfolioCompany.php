@@ -204,9 +204,6 @@ class PortfolioCompany extends AbstractTaxonomy {
 				$this->sync_company_to_term( $company_id, $post, true );
 			}
 		}
-
 		update_option( $flag_key, time() );
 	}
-
-
 }
