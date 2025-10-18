@@ -28,10 +28,10 @@ class PluginCore {
 		add_action( 'init', [ $this, 'i18n' ] );
 		add_action( 'init', [ $this, 'init' ], apply_filters( 'tenup_plugin_init_priority', 8 ) );
 
-		// add_filter( 'acf/settings/save_json', [ $this, 'save_point' ] );
-		// add_filter( 'acf/settings/load_json', [ $this, 'load_point' ] );
+		add_filter( 'acf/settings/save_json', [ $this, 'save_point' ] );
+		add_filter( 'acf/settings/load_json', [ $this, 'load_point' ] );
 
-		// add_filter( 'acf/settings/enable_post_types', '__return_false' );
+		add_filter( 'acf/settings/enable_post_types', '__return_false' );
 
 
 		// Register Portfolio post type.
@@ -173,14 +173,14 @@ class PluginCore {
 	}
 
 	/**
-	 * Path to the acf-folder save point.
+	 * Path to the acf-folder save point relative to the mu-plugin directory.
 	 *
 	 * @param $path
 	 *
 	 * @return string
 	 */
 	public function save_point( string $path ): string {
-		return $this->config->get_app_directory() . '/config/acf-json';
+		return TENUP_PLUGIN_INC . 'config/acf-json';
 	}
 
 	/**
@@ -192,7 +192,7 @@ class PluginCore {
 	 */
 	public function load_point( $paths ): array {
 		unset( $paths[0] );
-		$paths[] = $this->config->get_app_directory() . '/config/acf-json';
+		$paths[] = TENUP_PLUGIN_INC . 'config/acf-json';
 		return $paths;
 	}
 
