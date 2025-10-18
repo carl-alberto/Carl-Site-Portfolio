@@ -5,7 +5,43 @@
 			"defaultDuotone": false,
 			"defaultGradients": false,
 			"defaultPalette": false,
-			"palette": []
+			"palette": [
+      {
+          "name": "Darkviolet",
+          "slug": "darkviolet",
+          "color": "#0f172a"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Light Gray",
+          "slug": "light-gray",
+          "color": "#9ca3af"
+        },
+        {
+          "name": "Violet",
+          "slug": "violet",
+          "color": "#9ca3af"
+        },
+        {
+          "name": "Gray",
+          "slug": "gray",
+          "color": "#374052"
+        },
+        {
+          "name": "Light Violet",
+          "slug": "light-violet",
+          "color": "#374052"
+        },
+        {
+          "name": "Indigo",
+          "slug": "indigo",
+          "color": "#172030"
+        }
+      ]
 		},
 		"custom": {
 			"full-viewport-width": "calc(100vw - var(--wp--custom--scrollbar-width, 0px))",
