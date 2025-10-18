@@ -12,6 +12,7 @@ use TenUpPlugin\PostTypes\Portfolio;
 use TenUpPlugin\PostTypes\Company;
 use TenUpPlugin\PostTypes\Learning;
 use TenUpPlugin\PostTypes\Contribution;
+use TenUpPlugin\PostTypes\Demo;
 
 /**
  * PluginCore module.
@@ -26,6 +27,12 @@ class PluginCore {
 	public function setup() {
 		add_action( 'init', [ $this, 'i18n' ] );
 		add_action( 'init', [ $this, 'init' ], apply_filters( 'tenup_plugin_init_priority', 8 ) );
+
+		// add_filter( 'acf/settings/save_json', [ $this, 'save_point' ] );
+		// add_filter( 'acf/settings/load_json', [ $this, 'load_point' ] );
+
+		// add_filter( 'acf/settings/enable_post_types', '__return_false' );
+
 
 		// Register Portfolio post type.
 		add_action(
@@ -163,5 +170,44 @@ class PluginCore {
 	 */
 	public static function get_module( $class_name ) {
 		return ModuleInitialization::get_module( $class_name );
+	}
+
+	/**
+	 * Path to the acf-folder save point.
+	 *
+	 * @param $path
+	 *
+	 * @return string
+	 */
+	public function save_point( string $path ): string {
+		return $this->config->get_app_directory() . '/config/acf-json';
+	}
+
+	/**
+	 * Load acf-folder JSON on this path.
+	 *
+	 * @param $paths
+	 *
+	 * @return array
+	 */
+	public function load_point( $paths ): array {
+		unset( $paths[0] );
+		$paths[] = $this->config->get_app_directory() . '/config/acf-json';
+		return $paths;
+	}
+
+	/**
+	 * Adding Gutenberg blocks from templates.
+	 *
+	 * @param array $block The block to be rendered.
+	 * @return void
+	 */
+	public function acf_block_render_callback( $block ) {
+
+		$slug = str_replace( 'acf/', '', $block['name'] );
+
+		if ( file_exists( get_theme_file_path( "/template-parts/gutenberg/block-{$slug}.php" ) ) ) {
+			include get_theme_file_path( "/template-parts/gutenberg/block-{$slug}.php" );
+		}
 	}
 }
