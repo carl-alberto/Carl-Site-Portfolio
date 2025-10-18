@@ -22,7 +22,7 @@ npm run build
 cd ../..
 
 # Rsync selected folders/files to remote server using custom port 2222 in Pantheon servers
-rsync -avz -e "ssh -i deploy_key -p 2222 -o StrictHostKeyChecking=no" themes mu-plugins $DEPLOY_USER@$DEPLOY_HOST:/code/wp-content/
+rsync -avz --exclude-from='.pantheonignore' -e "ssh -i deploy_key -p 2222 -o StrictHostKeyChecking=no" themes mu-plugins $DEPLOY_USER@$DEPLOY_HOST:/code/wp-content/
 
 # Clean up
 rm deploy_key
