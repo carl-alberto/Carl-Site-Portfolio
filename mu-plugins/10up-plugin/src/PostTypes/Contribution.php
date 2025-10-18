@@ -28,7 +28,7 @@ class Contribution extends AbstractPostType {
 	 * @return string
 	 */
 	public function get_singular_label() {
-		return esc_html__( 'Contributions', 'tenup-plugin' );
+		return esc_html__( 'Contribution', 'tenup-plugin' );
 	}
 
 	/**
@@ -37,7 +37,7 @@ class Contribution extends AbstractPostType {
 	 * @return string
 	 */
 	public function get_plural_label() {
-		return esc_html__( 'Community Contributions', 'tenup-plugin' );
+		return esc_html__( 'Contributions', 'tenup-plugin' );
 	}
 
 	/**

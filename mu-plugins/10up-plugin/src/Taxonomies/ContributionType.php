@@ -47,6 +47,6 @@ class ContributionType extends AbstractTaxonomy {
 	 * @return bool
 	 */
 	public function can_register() {
-		return true;
+		return false;
 	}
 }
