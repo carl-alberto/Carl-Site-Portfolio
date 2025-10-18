@@ -33,7 +33,6 @@ class PluginCore {
 
 		add_filter( 'acf/settings/enable_post_types', '__return_false' );
 
-
 		// Register Portfolio post type.
 		add_action(
 			'init',
@@ -175,7 +174,7 @@ class PluginCore {
 	/**
 	 * Path to the acf-folder save point relative to the mu-plugin directory.
 	 *
-	 * @param $path
+	 * @param string $path Path of the ACF config file.
 	 *
 	 * @return string
 	 */
@@ -186,11 +185,11 @@ class PluginCore {
 	/**
 	 * Load acf-folder JSON on this path.
 	 *
-	 * @param $paths
+	 * @param array $paths Paths of the ACF config files.
 	 *
 	 * @return array
 	 */
-	public function load_point( $paths ): array {
+	public function load_point( array $paths ): array {
 		unset( $paths[0] );
 		$paths[] = TENUP_PLUGIN_INC . 'config/acf-json';
 		return $paths;
