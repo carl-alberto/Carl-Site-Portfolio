@@ -1,4 +1,4 @@
-name: PHP Checks
+name: PHP Coding Standards and PHP Standards
 
 on:
   push:
