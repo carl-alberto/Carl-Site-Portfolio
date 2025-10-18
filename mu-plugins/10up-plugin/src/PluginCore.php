@@ -31,7 +31,7 @@ class PluginCore {
 		add_filter( 'acf/settings/save_json', [ $this, 'save_point' ] );
 		add_filter( 'acf/settings/load_json', [ $this, 'load_point' ] );
 
-		add_filter( 'acf/settings/enable_post_types', '__return_false' );
+		// add_filter( 'acf/settings/enable_post_types', '__return_false' );
 
 		// Register Portfolio post type.
 		add_action(
