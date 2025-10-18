@@ -60,7 +60,7 @@ class Demo extends AbstractPostType {
 	 * @return bool
 	 */
 	public function can_register() {
-		return false;
+		return true;
 	}
 
 	/**

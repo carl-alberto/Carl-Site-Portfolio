@@ -71,6 +71,17 @@ class PluginCore {
 			}
 		);
 
+		// Register Demo post type.
+		add_action(
+			'init',
+			function () {
+				$demo = new Demo();
+				if ( $demo->can_register() ) {
+					$demo->register();
+				}
+			}
+		);
+
 		do_action( 'tenup_plugin_loaded' );
 	}
 

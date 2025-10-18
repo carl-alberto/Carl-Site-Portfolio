@@ -47,6 +47,6 @@ class Demo extends AbstractTaxonomy {
 	 * @return bool
 	 */
 	public function can_register() {
-		return false;
+		return true;
 	}
 }
