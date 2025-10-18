@@ -2,7 +2,7 @@ name: Deploy to Pantheon after sucessfull Check
 
 on:
   workflow_run:
-    workflows: ["PHP Checks"]
+    workflows: ["PHP Coding Standards and PHP Standards"]
     types:
       - completed
 
