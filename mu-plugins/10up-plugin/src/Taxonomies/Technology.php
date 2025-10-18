@@ -10,7 +10,7 @@ namespace TenUpPlugin\Taxonomies;
 use TenupFramework\Taxonomies\AbstractTaxonomy;
 
 /**
- * Registers the "Technology" taxonomy.
+ * Technology Taxonomy.
  */
 class Technology extends AbstractTaxonomy {
 
@@ -42,16 +42,7 @@ class Technology extends AbstractTaxonomy {
 	}
 
 	/**
-	 * Get the object type associated with the taxonomy.
-	 *
-	 * @return array
-	 */
-	public function get_object_type() {
-		return [ 'learning' ];
-	}
-
-	/**
-	 * Can the class be registered?
+	 * Checks whether the Module should run within the current context.
 	 *
 	 * @return bool
 	 */

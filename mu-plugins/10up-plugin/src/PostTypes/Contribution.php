@@ -65,7 +65,7 @@ class Contribution extends AbstractPostType {
 	 */
 	public function get_supported_taxonomies() {
 		return [
-			'contribution_type',
+			'contribution-type',
 		];
 	}
 

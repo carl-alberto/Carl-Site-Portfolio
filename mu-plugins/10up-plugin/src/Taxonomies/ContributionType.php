@@ -1,6 +1,6 @@
 <?php
 /**
- * Contribution Type Taxonomy
+ * ContributionType Taxonomy
  *
  * @package TenUpPlugin
  */
@@ -10,7 +10,7 @@ namespace TenUpPlugin\Taxonomies;
 use TenupFramework\Taxonomies\AbstractTaxonomy;
 
 /**
- * Add Contribution Type taxonomy.
+ * ContributionType Taxonomy.
  */
 class ContributionType extends AbstractTaxonomy {
 
@@ -20,11 +20,11 @@ class ContributionType extends AbstractTaxonomy {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'contribution_type';
+		return 'contribution-type';
 	}
 
 	/**
-	 * Get the singular label for the taxonomy.
+	 * Get the singular taxonomy label.
 	 *
 	 * @return string
 	 */
@@ -33,7 +33,7 @@ class ContributionType extends AbstractTaxonomy {
 	}
 
 	/**
-	 * Get the plural label for the taxonomy.
+	 * Get the plural taxonomy label.
 	 *
 	 * @return string
 	 */
@@ -42,16 +42,9 @@ class ContributionType extends AbstractTaxonomy {
 	}
 
 	/**
-	 * Get the object types the taxonomy is associated with.
+	 * Checks whether the Module should run within the current context.
 	 *
-	 * @return array
-	 */
-	public function get_object_type() {
-		return [ 'contribution' ];
-	}
-
-	/**
-	 * Register the taxonomy as hierarchical.
+	 * @return bool
 	 */
 	public function can_register() {
 		return true;

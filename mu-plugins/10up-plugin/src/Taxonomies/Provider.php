@@ -41,15 +41,6 @@ class Provider extends AbstractTaxonomy {
 	}
 
 	/**
-	 * Get the object type associated with the taxonomy.
-	 *
-	 * @return array
-	 */
-	public function get_object_type() {
-		return [ 'learning' ];
-	}
-
-	/**
 	 * Can the class be registered?
 	 *
 	 * @return bool
