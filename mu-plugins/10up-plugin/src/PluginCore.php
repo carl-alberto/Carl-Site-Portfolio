@@ -31,8 +31,6 @@ class PluginCore {
 		add_filter( 'acf/settings/save_json', [ $this, 'save_point' ] );
 		add_filter( 'acf/settings/load_json', [ $this, 'load_point' ] );
 
-		// add_filter( 'acf/settings/enable_post_types', '__return_false' );
-
 		// Register Portfolio post type.
 		add_action(
 			'init',
@@ -73,17 +71,6 @@ class PluginCore {
 				$contribution = new Contribution();
 				if ( $contribution->can_register() ) {
 					$contribution->register();
-				}
-			}
-		);
-
-		// Register Demo post type.
-		add_action(
-			'init',
-			function () {
-				$demo = new Demo();
-				if ( $demo->can_register() ) {
-					$demo->register();
 				}
 			}
 		);
@@ -174,11 +161,9 @@ class PluginCore {
 	/**
 	 * Path to the acf-folder save point relative to the mu-plugin directory.
 	 *
-	 * @param string $path Path of the ACF config file.
-	 *
 	 * @return string
 	 */
-	public function save_point( string $path ): string {
+	public function save_point(): string {
 		return TENUP_PLUGIN_INC . 'config/acf-json';
 	}
 
