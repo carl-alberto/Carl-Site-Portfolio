@@ -70,6 +70,8 @@ class Portfolio extends AbstractPostType {
 			'portfolio-tech',
 			'portfolio-client',
 			'portfolio-company',
+			'technology',
+			'company',
 		];
 	}
 
@@ -111,6 +113,11 @@ class Portfolio extends AbstractPostType {
 				'menu_icon'    => $this->get_menu_icon(),
 				'supports'     => $this->get_supported_features(),
 				'taxonomies'   => $this->get_supported_taxonomies(),
+				'labels'       => [
+					'add_new'      => esc_html__( 'Add Portfolio', 'tenup-plugin' ),
+					'add_new_item' => esc_html__( 'Add New Portfolio', 'tenup-plugin' ),
+					// You can add more custom labels here if needed.
+				],
 			]
 		);
 		return true;
