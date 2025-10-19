@@ -92,7 +92,15 @@ class Portfolio extends AbstractPostType {
 	 * @return void
 	 */
 	public function after_register() {
-		// Register any hooks/filters you need.
+		// Register 'role' post meta for REST API and block editor support.
+		register_post_meta( 'portfolio', 'role', array(
+			'show_in_rest'  => true,
+			'single'        => true,
+			'type'          => 'string',
+			'auth_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			},
+		) );
 	}
 
 	/**

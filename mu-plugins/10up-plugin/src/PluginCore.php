@@ -161,6 +161,8 @@ class PluginCore {
 	/**
 	 * Path to the acf-folder save point relative to the mu-plugin directory.
 	 *
+	 * @param string $path Path of the ACF config file.
+	 *
 	 * @return string
 	 */
 	public function save_point(): string {

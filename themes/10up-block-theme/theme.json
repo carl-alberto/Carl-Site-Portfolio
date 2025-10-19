@@ -1,5 +1,6 @@
 {
 	"settings": {
+    "customFields": true,
 		"appearanceTools": true,
 		"color": {
 			"defaultDuotone": false,

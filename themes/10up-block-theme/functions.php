@@ -37,3 +37,5 @@ require_once __DIR__ . '/template-tags.php';
 
 $theme_core = new \TenupBlockTheme\ThemeCore();
 $theme_core->setup();
+
+add_theme_support( 'custom-fields' );

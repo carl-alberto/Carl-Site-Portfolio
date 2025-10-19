@@ -1,0 +1,57 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-tenup-portfolio-hero-header {
+
+}
+
+.portfolio-hero-header {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+}
+.portfolio-hero-header-bg {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8);
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+    opacity: .1; /* Only the image is semi-transparent */
+}
+.portfolio-hero-header-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.2) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+.portfolio-hero-header-content,
+.portfolio-hero-header-content.wp-block-group__inner-container {
+    max-width: var(--wp--style--global--content-size, 800px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    text-align: left; /* Align left */
+    color: #fff;
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.portfolio-hero-header-title {
+    margin: 0 0 1rem 0;
+    text-align: left; /* Align left */
+}
+.portfolio-hero-header-taxonomy,
+.portfolio-hero-header-custom {
+    margin-bottom: 0.5rem;
+    text-align: left; /* Align left */
+}

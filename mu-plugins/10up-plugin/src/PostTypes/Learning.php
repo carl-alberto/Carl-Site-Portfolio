@@ -80,6 +80,7 @@ class Learning extends AbstractPostType {
 			'title',
 			'editor',
 			'thumbnail',
+			'excerpt',
 		];
 	}
 
