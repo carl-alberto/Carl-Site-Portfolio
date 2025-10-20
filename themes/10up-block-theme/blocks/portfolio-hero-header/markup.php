@@ -8,15 +8,14 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-$post_id = get_the_ID();
+$post_id            = get_the_ID();
 $featured_image_url = get_the_post_thumbnail_url( $post_id, 'full' );
-$taxonomy = get_the_term_list( $post_id, 'technology', '', ', ' );
-$custom_field = get_post_meta( $post_id, 'role', true );
-$excerpt = get_the_excerpt( $post_id );
+$taxonomy           = get_the_term_list( $post_id, 'technology', '', ', ' );
+$custom_field       = get_post_meta( $post_id, 'role', true );
+$excerpt            = get_the_excerpt( $post_id );
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo wp_kses_post( get_block_wrapper_attributes() ); ?>>
 	<div class="portfolio-hero-header" style="position:relative;">
 		<?php if ( $featured_image_url ) : ?>
 			<img src="<?php echo esc_url( $featured_image_url ); ?>" class="portfolio-hero-header-bg" alt="" />
