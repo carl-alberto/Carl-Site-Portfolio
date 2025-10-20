@@ -1,0 +1,228 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<body>
+
+    <header class="futuristic-header">
+        <canvas id="rippleCanvas"></canvas>
+        <div class="header-content"><!-- wp:post-title {"level":1} /-->
+            <p class="subtext">Full Stack Web Engineer / Solutions Architect</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <p>Your website content goes here...</p>
+        </div>
+    </main>
+	<style>
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ffff;
+            overflow-x: hidden;
+        }
+
+        .futuristic-header {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #rippleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .glow-text {
+            font-size: clamp(3rem, 8vw, 6rem);
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00, #ffff00);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite, glow 2s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 30px #ff00ff;
+            letter-spacing: 0.1em;
+        }
+
+        .subtext {
+            font-size: 1.5rem;
+            color: #888;
+            margin-top: 1rem;
+            animation: fadeInUp 2s ease-out 0.5s both;
+        }
+
+        .content {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: #ccc;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                    0 0 10px #00ffff,
+                    0 0 20px #00ffff,
+                    0 0 30px #ff00ff;
+            }
+            to {
+                text-shadow:
+                    0 0 20px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 60px #ff00ff;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glow-text { letter-spacing: 0.05em; }
+            .subtext { font-size: 1.2rem; }
+        }
+    </style>
+    <script>
+        class FuturisticRipple {
+            constructor() {
+                this.canvas = document.getElementById('rippleCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.resizeCanvas();
+                this.ripples = [];
+                this.mouse = { x: 0, y: 0 };
+                this.init();
+            }
+
+            resizeCanvas() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            init() {
+                window.addEventListener('resize', () => this.resizeCanvas());
+                this.canvas.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                this.animate();
+            }
+
+            onMouseMove(e) {
+                const rect = this.canvas.getBoundingClientRect();
+                this.mouse.x = e.clientX - rect.left;
+                this.mouse.y = e.clientY - rect.top;
+
+                this.ripples.push({
+                    x: this.mouse.x,
+                    y: this.mouse.y,
+                    radius: 0,
+                    maxRadius: Math.random() * 200 + 100,
+                    opacity: 1,
+                    speed: Math.random() * 3 + 2
+                });
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+
+                const gradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+                gradient.addColorStop(0, '#0a0a0a');
+                gradient.addColorStop(0.5, '#1a0033');
+                gradient.addColorStop(1, '#000011');
+                this.ctx.fillStyle = gradient;
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                this.drawGrid();
+
+                for (let i = this.ripples.length - 1; i >= 0; i--) {
+                    const ripple = this.ripples[i];
+
+                    ripple.radius += ripple.speed;
+                    ripple.opacity = 1 - (ripple.radius / ripple.maxRadius);
+
+                    if (ripple.opacity <= 0) {
+                        this.ripples.splice(i, 1);
+                        continue;
+                    }
+
+                    this.drawRipple(ripple);
+                }
+            }
+
+            drawGrid() {
+                this.ctx.strokeStyle = 'rgba(0, 255, 255, 0.05)';
+                this.ctx.lineWidth = 1;
+
+                for (let x = 0; x < this.canvas.width; x += 50) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(x, 0);
+                    this.ctx.lineTo(x, this.canvas.height);
+                    this.ctx.stroke();
+                }
+
+                for (let y = 0; y < this.canvas.height; y += 50) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(0, y);
+                    this.ctx.lineTo(this.canvas.width, y);
+                    this.ctx.stroke();
+                }
+            }
+
+            drawRipple(ripple) {
+                this.ctx.save();
+                this.ctx.globalAlpha = ripple.opacity * 0.8;
+
+                this.ctx.strokeStyle = '#00ffff';
+                this.ctx.lineWidth = 2;
+                this.ctx.beginPath();
+                this.ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
+                this.ctx.stroke();
+
+                this.ctx.strokeStyle = '#ff00ff';
+                this.ctx.lineWidth = 1;
+                this.ctx.beginPath();
+                this.ctx.arc(ripple.x, ripple.y, ripple.radius * 0.7, 0, Math.PI * 2);
+                this.ctx.stroke();
+
+                this.ctx.shadowColor = '#00ffff';
+                this.ctx.shadowBlur = 20;
+
+                this.ctx.restore();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new FuturisticRipple();
+        });
+    </script>
+</body>
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
