@@ -56,8 +56,15 @@ export const BlockEdit = () => {
 					templateLock
 				/>
 
-				{/* Custom Meta */}
-				{role && <div className="portfolio-hero-header-meta">{role}</div>}
+				{/* Editable Custom Meta */}
+				<RichText
+					tagName="div"
+					value={role}
+					onChange={onChangeRole}
+					placeholder="Add role…"
+					className="portfolio-hero-header-custom"
+					allowedFormats={[]}
+				/>
 			</div>
 		</div>
 	);

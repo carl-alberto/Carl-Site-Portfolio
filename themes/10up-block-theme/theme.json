@@ -41,6 +41,11 @@
           "name": "Indigo",
           "slug": "indigo",
           "color": "#172030"
+        },
+        {
+          "name": "Neon",
+          "slug": "neon",
+          "color": "#00ffff"
         }
       ]
 		},

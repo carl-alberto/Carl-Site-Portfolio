@@ -8,15 +8,15 @@
     "url": "https://project-git-repo.tld"
   },
   "workspaces": [
-    "themes/*",
+    "themes/10up-block-theme",
     "mu-plugins/10up-plugin"
   ],
   "scripts": {
     "prepare": "TEN=\"$(pwd)\"; UP=\"$(git rev-parse --show-toplevel)\"; TENUP=\"${TEN#\"$UP\"}\"; cd \"$(git rev-parse --show-toplevel)\"; husky .\"${TENUP}\"/.husky",
     "build": "npm run build --workspaces --if-present",
     "start": "npm run watch",
-    "watch:theme": "npm run watch -w=tenup-theme",
-    "watch:plugin": "npm run watch -w=tenup-plugin",
+    "watch:theme": "npm run watch -w=themes/10up-block-theme",
+    "watch:plugin": "npm run watch -w=mu-plugins/10up-plugin",
     "watch": "run-p watch:theme watch:plugin",
     "lint-js": "npm run lint-js --workspaces --if-present",
     "format-js": "npm run format-js --workspaces --if-present",
