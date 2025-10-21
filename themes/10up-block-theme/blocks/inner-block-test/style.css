@@ -1,10 +1,44 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
+/* style.css */
 
-.wp-block-tenup-inner-block-test {
-	
+.wp-block-tenup-hero-block {
+	width: 100%;
+}
+
+.hero-block__background {
+	background-size: cover;
+	background-position: center;
+	min-height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-align: center;
+}
+
+.hero-block__background--placeholder {
+	background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.hero-block__content {
+	padding: 2rem;
+	max-width: 800px;
+	width: 100%;
+}
+
+.hero-block__title {
+	font-size: 2.5rem;
+	margin: 0 0 1rem;
+	text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-block__taxonomies {
+	font-size: 1.1rem;
+	margin-bottom: 1.5rem;
+	opacity: 0.9;
+}
+
+.hero-block__inner-content {
+	background: rgba(0,0,0,0.4);
+	padding: 1rem;
+	border-radius: 8px;
 }
