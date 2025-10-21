@@ -1,43 +1,5 @@
 <!-- wp:template-part {"slug":"header","theme":"10up-block-theme","tagName":"header"} /-->
 
-<!-- wp:group {"className":"portfolio-hero","style":{"spacing":{"margin":{"top":"0"}}}} -->
-<div class="portfolio-hero" style="position:relative;margin-top:0;">
-    <!-- wp:post-featured-image {"className":"portfolio-hero-bg"} /-->
-    <div class="portfolio-hero-gradient" style="
-        position:absolute;
-        inset:0;
-        background:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.2) 100%);
-        z-index:1;
-        pointer-events:none;
-    "></div>
-    <div class="portfolio-hero-title" style="
-        position:absolute;
-        left:0; right:0; top:50%;
-        transform:translateY(-50%);
-        z-index:2;
-        text-align:center;
-        color:#fff;
-        padding:2rem;
-    ">
-        <!-- wp:post-title {"level":1} /-->
-    </div>
-    <!-- Optionally hide the default featured image output with CSS -->
-    <style>
-        .portfolio-hero-bg img {
-            width:100vw;
-            height:50vh;
-            object-fit:cover;
-            display:block;
-            filter:brightness(0.8);
-        }
-    </style>
-</div>
-<!-- /wp:group -->
+<!-- wp:post-content {"layout":{"type":"full"}} /-->
 
-<!-- wp:group {"tagName":"main","className":"is-style-default","style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--32-48)","bottom":"var(--wp--preset--spacing--32-48)"}}}} -->
-<main class="wp-block-group is-style-default" style="padding-top:var(--wp--preset--spacing--32-48);padding-bottom:var(--wp--preset--spacing--32-48)">
-    <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-</main>
-<!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer","theme":"10up-block-theme","tagName":"footer"} /-->
+<!-- wp:template-part {"slug":"footer","theme":"10up-block-theme","area":"footer"} /-->
