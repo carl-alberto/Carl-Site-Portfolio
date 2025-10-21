@@ -22,6 +22,8 @@
 		"useBlockAssets": true,
 		"useScriptModules": true,
 		"loadBlockSpecificStyles": true,
+		"devURL": "https://carlalberto.carl5.local",
+    "publicPath": "/Users/carlalberto/Local Sites/carl5local/app/public",
 		"entry": {
 			"editor-frame-style-overrides": "./assets/css/editor-frame-style-overrides.css",
 			"editor-canvas-style-overrides": "./assets/css/editor-canvas-style-overrides.css",
