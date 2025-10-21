@@ -14,3 +14,11 @@ html {
 .wp-block-post-template.is-layout-flex {
 	align-items: stretch;
 }
+
+header.wp-block-template-part {
+	background: var(--wp--preset--color--base, #0f172a40);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+}
