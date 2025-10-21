@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tenup/inner-block-test",
+	"title": "Inner block test",
+	"category": "text",
+	"description": "Inner block test",
+	"attributes": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "tenup",
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./markup.php"
+}
