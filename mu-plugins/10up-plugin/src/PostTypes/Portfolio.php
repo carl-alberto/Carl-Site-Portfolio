@@ -119,7 +119,11 @@ class Portfolio extends AbstractPostType {
 	 */
 	public function get_custom_blocks(): array {
 		$block_arrays = array(
-			array( 'tenup/inner-block-test' ),
+			array(
+				'tenup/portfolio-header',
+				array(),
+				array(),
+			),
 			array(
 				'core/columns',
 				array(),
@@ -138,12 +142,10 @@ class Portfolio extends AbstractPostType {
 									'level'   => 2,
 								),
 							),
-							// Nested columns
 							array(
 								'core/columns',
 								array(),
 								array(
-									// First empty column
 									array(
 										'core/column',
 										array(),
@@ -155,32 +157,59 @@ class Portfolio extends AbstractPostType {
 													'style'       => array(
 														'spacing' => array(
 															'padding' => array(
-																'top' => "var:preset|spacing|16",
+																'top' => 'var:preset|spacing|16',
 															),
 														),
 													),
 												),
 											),
+											array( 'core/paragraph', array() ),
+											array( 'core/paragraph', array() ),
 										),
 									),
-									// Second column with styled paragraph
 									array(
 										'core/column',
-										array(),
+										array(
+											'layout' => array( 'type' => 'default' ),
+										),
 										array(
 											array(
-												'core/paragraph',
+												'core/group',
 												array(
 													'style' => array(
-														'typography' => array(
-															'fontSize' => '18px',
+														'spacing' => array(
+															'padding' => array(
+																'top'    => 'var:preset|spacing|12',
+																'bottom' => 'var:preset|spacing|12',
+																'left'   => 'var:preset|spacing|12',
+																'right'  => 'var:preset|spacing|12',
+															),
 														),
-														'backgroundColor' => 'indigo',
-														'border'          => array(
-															'radius' => '10px',
+														'border' => array(
+															'radius' => '12px',
 														),
 													),
 													'backgroundColor' => 'indigo',
+													'layout'          => array(
+														'type'        => 'flex',
+														'orientation' => 'vertical',
+													),
+												),
+												array(
+													array(
+														'core/heading',
+														array(
+															'content' => 'Impact',
+															'level'   => 2,
+														),
+													),
+													array(
+														'core/list',
+														array(),
+														array(
+															array( 'core/list-item', array() ),
+														),
+													),
 												),
 											),
 										),
