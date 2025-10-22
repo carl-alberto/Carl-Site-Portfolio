@@ -101,16 +101,16 @@ class Portfolio extends AbstractPostType {
 	 * @return array<string, mixed>
 	 */
 	public function get_options(): array {
-		$options                  = parent::get_options();
-		$options['rewrite']       = [
+		$options              = parent::get_options();
+		$options['rewrite']   = [
 			'slug'       => 'portfolio',
 			'with_front' => true,
 		];
-		$options['rest_base']     = 'portfolio';
-		$options['template']      = $this->get_custom_blocks();
+		$options['rest_base'] = 'portfolio';
+		$options['template']  = $this->get_custom_blocks();
 		// $options['template_lock'] = 'insert';
-		$options['public']        = true;
-		$options['has_archive']   = true;
+		$options['public']      = true;
+		$options['has_archive'] = true;
 		return $options;
 	}
 

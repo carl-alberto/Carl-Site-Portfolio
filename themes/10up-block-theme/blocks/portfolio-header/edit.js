@@ -2,7 +2,7 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-export const BlockEdit = (props) => {
+export const BlockEdit = () => {
 	const blockProps = useBlockProps({
 		className: 'hero-block-editor-preview',
 	});
@@ -12,7 +12,7 @@ export const BlockEdit = (props) => {
 		{
 			// Optional: restrict allowed blocks
 			// allowedBlocks: [ 'core/paragraph', 'core/button' ],
-		}
+		},
 	);
 
 	return (
@@ -20,9 +20,7 @@ export const BlockEdit = (props) => {
 			<div className="hero-block__background hero-block__background--placeholder">
 				<div className="hero-block__content">
 					<h1 className="hero-block__title">{__('Post Title', 'tenup')}</h1>
-					<div className="hero-block__taxonomies">
-						{__('Category, Tag', 'tenup')}
-					</div>
+					<div className="hero-block__taxonomies">{__('Category, Tag', 'tenup')}</div>
 					<div {...innerBlocksProps} />
 				</div>
 			</div>

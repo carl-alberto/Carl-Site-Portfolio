@@ -10,7 +10,7 @@
  */
 
 // Get current post ID (only works in post context)
-$post = get_post();
+$post    = get_post();
 $post_id = $post ? $post->ID : 0;
 
 if ( ! $post || ! in_array( $post->post_type, [ 'portfolio' ], true ) ) {
@@ -36,7 +36,7 @@ $post_title = get_the_title( $post_id );
 
 // Get taxonomies (example: category and post_tag)
 $taxonomy_terms = [];
-$taxonomies = get_post_taxonomies( $post_id );
+$taxonomies     = get_post_taxonomies( $post_id );
 foreach ( $taxonomies as $tax ) {
 	// Skip internal or hidden taxonomies
 	if ( in_array( $tax, [ 'post_format' ], true ) ) {
@@ -52,7 +52,7 @@ foreach ( $taxonomies as $tax ) {
 $taxonomy_list = implode( ', ', $taxonomy_terms );
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo get_block_wrapper_attributes();  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $featured_image_url ) : ?>
 		<div class="hero-block__background" style="background-image: url(<?php echo esc_url( $featured_image_url ); ?>);">
 			<div class="hero-block__content">
