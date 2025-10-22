@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tenup/portfolio-header",
+  "title": "Portfolio Header",
+  "category": "text",
+  "description": "Portfolio Header",
+  "attributes": {
+    "featuredImageUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "gradients": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "html": false
+  },
+  "variations": [
+    {
+      "name": "blue",
+      "title": "Blue Style",
+      "attributes": {
+        "className": "is-style-blue"
+      }
+    }
+  ],
+  "selectors": {
+    "color": {
+      "text": ":root",
+      "background": ".portfolio-block"
+    },
+    "spacing": {
+      "padding": ".portfolio-block"
+    }
+  },
+  "textdomain": "tenup",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css",
+  "render": "file:./markup.php"
+}

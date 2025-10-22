@@ -101,14 +101,133 @@ class Portfolio extends AbstractPostType {
 	 * @return array<string, mixed>
 	 */
 	public function get_options(): array {
-		$options                = parent::get_options();
-		$options['rewrite']     = [
+		$options              = parent::get_options();
+		$options['rewrite']   = [
 			'slug'       => 'portfolio',
 			'with_front' => true,
 		];
-		$options['rest_base']   = 'portfolio';
+		$options['rest_base'] = 'portfolio';
+		$options['template']  = $this->get_custom_blocks();
+		// $options['template_lock'] = 'insert';
 		$options['public']      = true;
 		$options['has_archive'] = true;
 		return $options;
+	}
+
+	/**
+	 * Structure the default blocks for the post type.
+	 */
+	public function get_custom_blocks(): array {
+		$block_arrays = array(
+			array(
+				'tenup/portfolio-header',
+				array(),
+				array(),
+			),
+			array(
+				'core/columns',
+				array(),
+				array(
+					array(
+						'core/column',
+						array(
+							'layout' => array( 'type' => 'constrained' ),
+						),
+						array(
+							array( 'core/paragraph', array() ),
+							array(
+								'core/heading',
+								array(
+									'content' => 'Project Overview',
+									'level'   => 2,
+								),
+							),
+							array(
+								'core/columns',
+								array(),
+								array(
+									array(
+										'core/column',
+										array(),
+										array(
+											array(
+												'core/paragraph',
+												array(
+													'placeholder' => 'Add project details here...',
+													'style'       => array(
+														'spacing' => array(
+															'padding' => array(
+																'top' => 'var:preset|spacing|16',
+															),
+														),
+													),
+												),
+											),
+											array( 'core/paragraph', array() ),
+											array( 'core/paragraph', array() ),
+										),
+									),
+									array(
+										'core/column',
+										array(
+											'layout' => array( 'type' => 'default' ),
+										),
+										array(
+											array(
+												'core/group',
+												array(
+													'style' => array(
+														'spacing' => array(
+															'padding' => array(
+																'top'    => 'var:preset|spacing|12',
+																'bottom' => 'var:preset|spacing|12',
+																'left'   => 'var:preset|spacing|12',
+																'right'  => 'var:preset|spacing|12',
+															),
+														),
+														'border' => array(
+															'radius' => '12px',
+														),
+													),
+													'backgroundColor' => 'indigo',
+													'layout'          => array(
+														'type'        => 'flex',
+														'orientation' => 'vertical',
+													),
+												),
+												array(
+													array(
+														'core/heading',
+														array(
+															'content' => 'Impact',
+															'level'   => 2,
+														),
+													),
+													array(
+														'core/list',
+														array(),
+														array(
+															array( 'core/list-item', array() ),
+														),
+													),
+												),
+											),
+										),
+									),
+								),
+							),
+							array(
+								'core/gallery',
+								array(
+									'columns' => 3,
+									'linkTo'  => 'none',
+								),
+							),
+						),
+					),
+				),
+			),
+		);
+		return $block_arrays;
 	}
 }
