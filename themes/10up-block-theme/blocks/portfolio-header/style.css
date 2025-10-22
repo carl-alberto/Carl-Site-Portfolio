@@ -12,7 +12,7 @@
 	align-items: center;
 	justify-content: center;
 	color: white;
-	text-align: center;
+	text-align: left;
 }
 
 .hero-block__background--placeholder {
@@ -20,9 +20,8 @@
 }
 
 .hero-block__content {
-	padding: 2rem;
-	max-width: 800px;
 	width: 100%;
+	max-width: var(--wp--style--global--content-size);
 }
 
 .hero-block__title {
@@ -42,3 +41,33 @@
 	padding: 1rem;
 	border-radius: 8px;
 }
+
+.hero-block__background {
+	background-size: cover;
+	background-position: center;
+	min-height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-align: left;
+	position: relative; /* ADD THIS - required for ::before */
+}
+
+.hero-block__background::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(23, 32, 48, 0.95);
+	z-index: 1;
+}
+
+.hero-block__background > * {
+	position: relative;
+	z-index: 2;
+}
+
+/* Rest of your existing styles remain the same */

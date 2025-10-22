@@ -6,14 +6,16 @@
   "category": "text",
   "description": "Portfolio Header",
   "attributes": {
-    "content": {
+    "featuredImageUrl": {
       "type": "string",
-      "source": "html",
-      "selector": "p"
+      "default": ""
     }
   },
   "supports": {
-    "alignment": [
+    "html": false
+  },
+  "supports": {
+    "align": [
       "wide",
       "full"
     ],
@@ -23,7 +25,8 @@
     "spacing": {
       "margin": true,
       "padding": true
-    }
+    },
+    "html": false
   },
   "variations": [
     {
@@ -31,10 +34,7 @@
       "title": "Blue Style",
       "attributes": {
         "className": "is-style-blue"
-      },
-      "isActive": [
-        "isActiveBlueStyle"
-      ]
+      }
     }
   ],
   "selectors": {
