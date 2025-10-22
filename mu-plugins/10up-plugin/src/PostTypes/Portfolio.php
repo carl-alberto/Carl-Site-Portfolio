@@ -86,20 +86,30 @@ class Portfolio extends AbstractPostType {
 		];
 	}
 
-	public function get_menu_postion(): ?int {
+	/**
+	 * Get the menu position for the post type.
+	 *
+	 * @return int|null
+	 */
+	public function get_menu_position(): ?int {
 		return 5;
 	}
 
+	/**
+	 * Get the post type options.
+	 *
+	 * @return array<string, mixed>
+	 */
 	public function get_options(): array {
-		$options                  = parent::get_options();
-		$options['rewrite']       = [
+		$options                = parent::get_options();
+		$options['rewrite']     = [
 			'slug'       => 'portfolio',
 			'with_front' => true,
 		];
-		$options['rest_base']     = 'portfolio';
-		$options['template']      = $this->get_custom_blocks();
-		$options['public']        = true;
-		$options['has_archive']   = true;
+		$options['rest_base']   = 'portfolio';
+		$options['template']    = $this->get_custom_blocks();
+		$options['public']      = true;
+		$options['has_archive'] = true;
 		return $options;
 	}
 }
