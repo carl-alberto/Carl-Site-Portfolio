@@ -86,10 +86,20 @@ class Portfolio extends AbstractPostType {
 		];
 	}
 
-	public function get_menu_postion(): ?int {
+	/**
+	 * Get the menu position for the post type.
+	 *
+	 * @return int|null
+	 */
+	public function get_menu_position(): ?int {
 		return 5;
 	}
 
+	/**
+	 * Get the post type options.
+	 *
+	 * @return array<string, mixed>
+	 */
 	public function get_options(): array {
 		$options                  = parent::get_options();
 		$options['rewrite']       = [
@@ -98,6 +108,7 @@ class Portfolio extends AbstractPostType {
 		];
 		$options['rest_base']     = 'portfolio';
 		$options['template']      = $this->get_custom_blocks();
+		// $options['template_lock'] = 'insert';
 		$options['public']        = true;
 		$options['has_archive']   = true;
 		return $options;
@@ -133,7 +144,25 @@ class Portfolio extends AbstractPostType {
 								array(),
 								array(
 									// First empty column
-									array( 'core/column', array(), array() ),
+									array(
+										'core/column',
+										array(),
+										array(
+											array(
+												'core/paragraph',
+												array(
+													'placeholder' => 'Add project details here...',
+													'style'       => array(
+														'spacing' => array(
+															'padding' => array(
+																'top' => "var:preset|spacing|16",
+															),
+														),
+													),
+												),
+											),
+										),
+									),
 									// Second column with styled paragraph
 									array(
 										'core/column',
