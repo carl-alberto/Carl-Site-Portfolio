@@ -107,7 +107,6 @@ class Portfolio extends AbstractPostType {
 			'with_front' => true,
 		];
 		$options['rest_base']   = 'portfolio';
-		$options['template']    = $this->get_custom_blocks();
 		$options['public']      = true;
 		$options['has_archive'] = true;
 		return $options;
