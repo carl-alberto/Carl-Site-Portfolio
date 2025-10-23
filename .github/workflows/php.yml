@@ -117,5 +117,5 @@ jobs:
       - name: Install Theme dependencies
         run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme
 
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --configuration themes/10up-block-theme/phpunit.xml
+      - name: Run Theme PHPUnit tests
+        run: vendor/bin/phpunit --configuration themes/10up-block-theme/phpunit.xml.dist --testdox
