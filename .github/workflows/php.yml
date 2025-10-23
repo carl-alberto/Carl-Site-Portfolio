@@ -95,3 +95,26 @@ jobs:
 
       - name: Run PHPStan
         run: composer static
+
+theme-phpunit:
+    name: Run Theme PHPUnit Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer:v2
+
+      - name: Install Theme dependencies
+        run: |
+          cd themes/10up-block-theme
+          composer install --prefer-dist --no-progress
+
+      - name: Run Theme PHPUnit Tests
+        run: |
+          cd themes/10up-block-theme
+          ./vendor/bin/phpunit --testdox
