@@ -2,3 +2,6 @@ composer.json
 composer.lock
 package.json
 .eslintignore
+
+themes/10up-block-theme/tests
+themes/10up-block-theme/phpunit.xml
