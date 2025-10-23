@@ -96,7 +96,7 @@ jobs:
       - name: Run PHPStan
         run: composer static
 
-theme-phpunit:
+  theme-phpunit:
     name: Run Theme PHPUnit Tests
     needs: setup
     runs-on: ubuntu-latest
