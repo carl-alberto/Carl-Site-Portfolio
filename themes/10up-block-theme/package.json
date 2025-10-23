@@ -9,7 +9,7 @@
 		"format-js": "10up-toolkit format-js",
 		"lint-js": "10up-toolkit lint-js",
 		"lint-style": "10up-toolkit lint-style",
-		"test": "10up-toolkit test-unit-jest --passWithNoTests && ./vendor/bin/phpunit --testdox",
+		"test": "10up-toolkit test-unit-jest --passWithNoTests",
     "test:php": "./vendor/bin/phpunit --testdox",
     "test:php:coverage": "./vendor/bin/phpunit --coverage-html coverage",
 		"clean-dist": "rm -rf ./dist",

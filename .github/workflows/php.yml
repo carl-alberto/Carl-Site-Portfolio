@@ -10,13 +10,15 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  setup:
+    name: Setup & Install Dependencies
     runs-on: ubuntu-latest
-
+    outputs:
+      cache-key: ${{ steps.composer-cache.outputs.cache-hit }}
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup PHP with composer v2
+      - name: Setup PHP with Composer v2
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
@@ -25,17 +27,15 @@ jobs:
       - name: Validate Root composer.json and composer.lock
         run: composer validate --strict
 
-      - name: Install Plugin dependencies for validation
-        run: composer install --prefer-dist --no-progress --working-dir=mu-plugins/10up-plugin || true
-
       - name: Validate Plugin composer.json and composer.lock
-        run: composer validate --strict --working-dir=mu-plugins/10up-plugin || true
-
-      - name: Install Theme dependencies for validation
-        run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme || true
+        run: |
+          composer install --prefer-dist --no-progress --working-dir=mu-plugins/10up-plugin || true
+          composer validate --strict --working-dir=mu-plugins/10up-plugin || true
 
       - name: Validate Theme composer.json and composer.lock
-        run: composer validate --strict --working-dir=themes/10up-block-theme || true
+        run: |
+          composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme || true
+          composer validate --strict --working-dir=themes/10up-block-theme || true
 
       - name: Cache Composer packages
         id: composer-cache
@@ -55,13 +55,43 @@ jobs:
       - name: Install Theme dependencies
         run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme
 
+  phpcs:
+    name: Run PHPCS
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
       - name: Run PHPCS in mu-plugin
         run: composer lint -- mu-plugins/10up-plugin/src
 
       - name: Run PHPCS in theme
         run: composer lint -- themes/10up-block-theme
 
+  phpstan:
+    name: Run PHPStan
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
       - name: Run PHPStan
         run: composer static
-
-
