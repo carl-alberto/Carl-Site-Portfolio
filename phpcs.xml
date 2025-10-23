@@ -10,6 +10,7 @@
 	<exclude-pattern>node_modules/</exclude-pattern>
 	<exclude-pattern>vendor/</exclude-pattern>
 	<exclude-pattern>dist/</exclude-pattern>
+	<exclude-pattern>themes/10up-block-theme/tests/</exclude-pattern>
 
 	<!-- Exclude the specific plugins we don't want to scan -->
 	<exclude-pattern>./plugins/debug-bar/</exclude-pattern>

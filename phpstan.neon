@@ -7,3 +7,6 @@ parameters:
 		- themes/10up-block-theme
 		- mu-plugins/10up-plugin
 		- mu-plugins/10up-plugin-loader.php
+	excludePaths:
+		- themes/10up-block-theme/tests/
+		- mu-plugins/10up-plugin/tests/
