@@ -4,6 +4,7 @@
 	<exclude-pattern>dist/</exclude-pattern>
 	<exclude-pattern>vendor/</exclude-pattern>
 	<exclude-pattern>node_modules/</exclude-pattern>
+	<exclude-pattern>tests/</exclude-pattern>
 	<rule ref="10up-Default" />
 
 	<arg name="colors"/>
