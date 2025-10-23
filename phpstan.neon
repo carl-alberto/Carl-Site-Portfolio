@@ -2,21 +2,8 @@ includes:
 	- phpstan/default.neon
 
 parameters:
-
-	level: 1
 	paths:
+		- themes/10up-theme
 		- themes/10up-block-theme
-	excludePaths:
-		- themes/10up-block-theme/tests/
-		- mu-plugins/10up-plugin/tests/
-
-	ignoreErrors:
-		- '#(Class|Interface|Trait|Method) TenupFramework#'
-		- '#Call to an undefined method TenupBlockTheme\\Assets::(setup_asset_vars|get_asset_info)#'
-		- '#(Class|Interface|Trait|Method) UIKitCore#'
-		- '#Call to (an? )?(undefined|undeclared|non-object member) (static )?(method|function|property|constant)#'
-		- '#Access to an undefined property WordPress#'
-		- '#Parameter .* expects .* WordPress#'
-
-	checkMissingIterableValueType: false
-	checkGenericClassInNonGenericObjectType: false
+		- mu-plugins/10up-plugin
+		- mu-plugins/10up-plugin-loader.php
