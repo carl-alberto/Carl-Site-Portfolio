@@ -12,7 +12,9 @@
     "10up/wp-framework": "~1.2.0"
   },
   "require-dev": {
-    "10up/phpcs-composer": "dev-trunk"
+    "10up/phpcs-composer": "dev-trunk",
+    "phpunit/phpunit": "^10",
+    "brain/monkey": "^2.0"
   },
   "scripts": {
     "lint": "phpcs .",

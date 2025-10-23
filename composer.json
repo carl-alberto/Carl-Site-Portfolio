@@ -34,7 +34,8 @@
     "phpstan/phpstan-deprecation-rules": "^1.2",
     "spatie/ignition": "^1.15",
     "phpunit/phpunit": "^12.4",
-    "10up/wp_mock": "^0.4.2"
+    "10up/wp_mock": "^0.4.2",
+    "brain/monkey": "^2.6"
   },
   "scripts": {
     "lint": "./vendor/bin/phpcs --standard=./phpcs.xml",
