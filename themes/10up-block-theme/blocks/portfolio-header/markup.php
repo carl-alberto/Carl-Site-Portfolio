@@ -9,19 +9,8 @@
  * @var WP_Block $block      Block instance.
  */
 
-// Get current post ID (only works in post context)
 $post    = get_post();
 $post_id = $post ? $post->ID : 0;
-
-if ( ! $post || ! in_array( $post->post_type, [ 'portfolio' ], true ) ) {
-	// Optionally show a notice in the editor
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-		echo '<div class="components-notice is-warning">Hero block only works on Posts and Pages.</div>';
-	}
-	return;
-}
-
-
 
 // Fallback if no post (e.g., in widget area or template without post)
 if ( ! $post_id ) {
