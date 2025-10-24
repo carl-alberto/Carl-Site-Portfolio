@@ -22,7 +22,15 @@
     "format-js": "npm run format-js --workspaces --if-present",
     "lint-style": "npm run lint-style --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "clean-dist": "npm run clean-dist --workspaces --if-present"
+    "clean-dist": "npm run clean-dist --workspaces --if-present",
+    "phpcs": "../phpcs-local",
+    "phpcs:plugin": "../phpcs-local mu-plugins/10up-plugin",
+    "phpcs:theme": "../phpcs-local themes/10up-block-theme",
+    "phpcbf": "../phpcbf-local",
+    "phpstan": "composer static",
+    "phpunit:theme": " ./vendor/bin/phpunit --configuration themes/10up-block-theme --testdox",
+    "phpunit:plugin": " ./vendor/bin/phpunit --configuration mu-plugins/10up-plugin --testdox",
+    "phpunit": "./vendor/bin/phpunit --configuration themes/10up-block-theme && ./vendor/bin/phpunit --configuration mu-plugins/10up-plugin"
   },
   "author": {
     "name": "10up",

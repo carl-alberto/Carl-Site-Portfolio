@@ -36,4 +36,8 @@ Thumbs.db
 Desktop.ini
 /debug.log
 
+# Default WordPress themes
 themes/twenty*
+
+# PHPUnit cache
+.phpunit.result.cache
