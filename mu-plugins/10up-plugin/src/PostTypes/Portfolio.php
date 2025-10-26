@@ -132,7 +132,7 @@ class Portfolio extends AbstractPostType {
 					array(
 						'core/post-terms',
 						array(
-							'term'    => 'technology',
+							'term' => 'technology',
 						),
 					),
 				),
