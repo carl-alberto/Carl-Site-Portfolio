@@ -1,23 +1,9 @@
-/*
- * This file is used to override the styling of the block editor frame.
- * It is enqueued in the editor outside of the editor canvas iframe.
+/**
+ * Styles for the Portfolio Header block.
+ *
+ * @package 10up-block-theme
  */
-
-
-/*
- * Small editor blocks like the footer social nav are hard to click
- * Setting a min-height so that elements can be selected to edit
- * Prior to this scrollbars overlapped small elements
-*/
-
-.is-root-container {
-	min-height: 90dvh;
-}
-
-.block-editor-iframe__container {
-	min-height: 70px;
-}
-
+/* Ensure the parent container is positioned relative */
 .wp-block-column {
   position: relative;
   overflow: hidden; /* Optional: hides any overflow from the background */

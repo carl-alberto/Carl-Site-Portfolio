@@ -120,9 +120,22 @@ class Portfolio extends AbstractPostType {
 	public function get_custom_blocks(): array {
 		$block_arrays = array(
 			array(
-				'tenup/portfolio-header',
+				'myplugin/featured-cover-block',
 				array(),
-				array(),
+				array(
+					array(
+						'core/post-title',
+						array(
+							'placeholder' => 'Add project title here...',
+						),
+					),
+					array(
+						'core/post-terms',
+						array(
+							'term'    => 'technology',
+						),
+					),
+				),
 			),
 			array(
 				'core/columns',
