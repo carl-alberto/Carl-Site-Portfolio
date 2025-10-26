@@ -3,32 +3,32 @@
  *
  * @package 10up-block-theme
  */
+
 /* Ensure the parent container is positioned relative */
 .wp-block-column {
-  position: relative;
-  overflow: hidden; /* Optional: hides any overflow from the background */
+	overflow: hidden;
+	position: relative;
 }
 
 /* Make the background image fill the entire parent */
 .ftimageheader__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Behind the content */
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 0;
 }
 
 .ftimageheader__background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
 }
 
 /* Float the content on top of the background */
 .ftimage_body {
-  position: relative;
-  z-index: 1; /* Above the background */
-  color: white; /* Optional: for contrast */
-  padding: 2rem; /* Optional: spacing */
+	padding: 2rem;
+	position: relative;
+	z-index: 1;
 }

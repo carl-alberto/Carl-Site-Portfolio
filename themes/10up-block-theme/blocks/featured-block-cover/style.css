@@ -1,34 +1,34 @@
 .wp-block-myplugin-featured-cover-block {
-  width: 100%;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	align-items: center;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	height: 400px;
+	justify-content: center;
+	position: relative;
+	width: 100%;
 }
 
 .overlay {
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-		position: absolute;
-		opacity: 0.95;
+	height: 100%;
+	opacity: 0.95;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
 }
 
 .featured-block-cover__inner-content {
-  max-width: var(--wp--style--global--wide-size);
-  width: 100%;
+	max-width: var(--wp--style--global--wide-size);
+	width: 100%;
 	z-index: 20;
 }
 
 .wp-block-myplugin-featured-cover-block .post-title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
 }
 
 .wp-block-myplugin-featured-cover-block .post-categories span {
-  margin-right: 0.5rem;
-  font-size: 1rem;
+	font-size: 1rem;
+	margin-right: 0.5rem;
 }
