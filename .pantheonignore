@@ -2,6 +2,9 @@ composer.json
 composer.lock
 package.json
 .eslintignore
-
 themes/10up-block-theme/tests
 themes/10up-block-theme/phpunit.xml
+themes/10up-block-theme/.phpunit.result.cache
+themes/10up-block-theme/phpcs.xml
+themes/10up-block-theme/phpcs.xml.dist
+themes/10up-block-theme/phpunit.xml.dist

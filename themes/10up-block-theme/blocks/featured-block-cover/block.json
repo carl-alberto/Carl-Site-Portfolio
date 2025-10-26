@@ -1,0 +1,35 @@
+{
+  "apiVersion": 2,
+  "name": "myplugin/featured-cover-block",
+  "title": "Featured Cover Block",
+  "category": "design",
+  "icon": "format-image",
+  "description": "Displays the featured image as a background with any inner blocks on top.",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "gradients": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "innerBlocks": true
+  },
+    "selectors": {
+    "color": {
+      "text": ":root",
+      "background": ".portfolio-block"
+    },
+    "spacing": {
+      "padding": ".portfolio-block"
+    }
+  }
+}
