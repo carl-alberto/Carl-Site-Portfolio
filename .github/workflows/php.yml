@@ -104,6 +104,7 @@ jobs:
         with:
           php-version: "8.3"
           tools: composer:v2
+          coverage: xdebug
 
       - name: Cache Composer packages
         id: composer-cache
@@ -118,4 +119,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --working-dir=themes/10up-block-theme
 
       - name: Run Theme PHPUnit tests
-        run: vendor/bin/phpunit --configuration themes/10up-block-theme/phpunit.xml.dist --testdox
+        run: |
+          XDEBUG_MODE=coverage vendor/bin/phpunit \
+          --configuration themes/10up-block-theme/phpunit.xml.dist \
+          --testdox

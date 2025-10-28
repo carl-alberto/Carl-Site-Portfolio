@@ -1,20 +1,32 @@
-<phpunit
-	bootstrap="tests/php/bootstrap.php"
-	executionOrder="random"
-	failOnWarning="false"
-	failOnRisky="false">
-  <testsuites>
-    <testsuite name="Block Tests">
-      <directory>tests/php/blocks</directory>
-    </testsuite>
-  </testsuites>
-  <coverage processUncoveredFiles="true">
-  <include>
-    <directory suffix=".php">blocks</directory>
-  </include>
-  <report>
-    <text outputFile="php://stdout"/>
-    <html outputDirectory="coverage-report"/>
-  </report>
-</coverage>
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
+         executionOrder="random"
+         failOnWarning="false"
+         failOnRisky="false">
+    <!-- ────────────────────── TEST SUITES ────────────────────── -->
+    <testsuites>
+        <testsuite name="Block Tests">
+            <directory>tests/php/blocks</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- ────────────────────── COVERAGE (optional) ────────────────────── -->
+    <!-- Keep this block **only** if you have Xdebug or PCOV installed -->
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">blocks</directory>
+        </include>
+        <exclude>
+            <directory suffix=".php">tests</directory>
+            <directory suffix=".php">vendor</directory>
+        </exclude>
+
+        <!-- Text report to stdout (nice for CI) -->
+        <report>
+            <text outputFile="php://stdout"/>
+            <!-- HTML report for local browsing -->
+            <html outputDirectory="coverage-report"/>
+        </report>
+    </coverage>
 </phpunit>
