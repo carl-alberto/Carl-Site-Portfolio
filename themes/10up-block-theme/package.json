@@ -9,7 +9,7 @@
     "format-js": "10up-toolkit format-js",
     "lint-js": "10up-toolkit lint-js",
     "lint-style": "10up-toolkit lint-style",
-    "test": "npm run test:js && npm run test:php",
+    "test": "npm run test:js",
     "test:js": "10up-toolkit test-unit-jest",
     "test:js:coverage": "10up-toolkit test-unit-jest --coverage",
     "test:php": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --testdox",
