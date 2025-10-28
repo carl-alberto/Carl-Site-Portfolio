@@ -1,40 +1,54 @@
 {
-	"name": "tenup-block-theme",
-	"version": "1.0.0",
-	"scripts": {
-		"start": "npm run watch",
-		"watch": "10up-toolkit watch --port=5020",
-		"build": "10up-toolkit build",
-		"build:analyze": "10up-toolkit build --analyze",
-		"format-js": "10up-toolkit format-js",
-		"lint-js": "10up-toolkit lint-js",
-		"lint-style": "10up-toolkit lint-style",
-		"test": "10up-toolkit test-unit-jest --passWithNoTests",
+  "name": "tenup-block-theme",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run watch",
+    "watch": "10up-toolkit watch --port=5020",
+    "build": "10up-toolkit build",
+    "build:analyze": "10up-toolkit build --analyze",
+    "format-js": "10up-toolkit format-js",
+    "lint-js": "10up-toolkit lint-js",
+    "lint-style": "10up-toolkit lint-style",
+    "test": "npm run test:js && npm run test:php",
+    "test:js": "10up-toolkit test-unit-jest",
+    "test:coverage": "10up-toolkit test-unit-jest --coverage",
     "test:php": "./vendor/bin/phpunit --testdox",
     "test:php:coverage": "./vendor/bin/phpunit --coverage-html coverage",
-		"clean-dist": "rm -rf ./dist",
-		"scaffold:block": "cd blocks/ && wp-create-block --no-plugin --template ../../../../bin/create-block-template"
-	},
-	"dependencies": {
-		"@10up/block-components": "^1.19.4",
-		"10up-toolkit": "^6.5.0",
-		"clsx": "^2.1.1"
-	},
-	"10up-toolkit": {
-		"useBlockAssets": true,
-		"useScriptModules": true,
-		"loadBlockSpecificStyles": true,
-		"devURL": "https://carlalberto.carl5.local",
+    "clean-dist": "rm -rf ./dist",
+    "scaffold:block": "cd blocks/ && wp-create-block --no-plugin --template ../../../../bin/create-block-template"
+  },
+  "dependencies": {
+    "@10up/block-components": "^1.19.4",
+    "10up-toolkit": "^6.5.0",
+    "clsx": "^2.1.1"
+  },
+  "10up-toolkit": {
+    "useBlockAssets": true,
+    "useScriptModules": true,
+    "loadBlockSpecificStyles": true,
+    "devURL": "https://carlalberto.carl5.local",
     "publicPath": "/Users/carlalberto/Local Sites/carl5local/app/public",
-		"entry": {
-			"editor-frame-style-overrides": "./assets/css/editor-frame-style-overrides.css",
-			"editor-canvas-style-overrides": "./assets/css/editor-canvas-style-overrides.css",
-			"frontend": "./assets/js/frontend.js",
-			"block-extensions": "./assets/js/block-extensions.js",
+    "entry": {
+      "editor-frame-style-overrides": "./assets/css/editor-frame-style-overrides.css",
+      "editor-canvas-style-overrides": "./assets/css/editor-canvas-style-overrides.css",
+      "frontend": "./assets/js/frontend.js",
+      "block-extensions": "./assets/js/block-extensions.js",
       "restrict-blocks": "./assets/js/restrict-blocks.js"
-		},
-		"paths": {
-			"blocksDir": "./blocks"
-		}
-	}
+    },
+    "paths": {
+      "blocksDir": "./blocks"
+    }
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@wordpress/block-editor": "^15.6.0",
+    "@wordpress/blocks": "^15.6.0",
+    "@wordpress/data": "^10.33.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
 }

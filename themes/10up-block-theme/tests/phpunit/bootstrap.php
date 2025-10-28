@@ -2,6 +2,8 @@
 $themeRoot = dirname(__DIR__, 2);
 require_once $themeRoot . '/vendor/autoload.php';
 
+require_once __DIR__ . '/test-featured-cover-block.php';
+
 // 🔥 COMPLETE WP MOCKS - ALL FUNCTIONS YOUR BLOCK NEEDS
 if (!function_exists('get_post')) {
     function get_post($post_id = null, $output = null, $filter = 'raw') {

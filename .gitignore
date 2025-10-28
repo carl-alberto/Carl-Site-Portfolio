@@ -41,3 +41,6 @@ themes/twenty*
 
 # PHPUnit cache
 .phpunit.result.cache
+
+# Project specific ignores
+themes/10up-block-theme/coverage
