@@ -14,7 +14,7 @@
   "require-dev": {
     "10up/phpcs-composer": "dev-trunk",
     "phpunit/phpunit": "^10",
-    "brain/monkey": "^3.0"
+    "brain/monkey": "^2.6"
   },
   "scripts": {
     "lint": "phpcs .",
