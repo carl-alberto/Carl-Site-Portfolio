@@ -47,3 +47,4 @@ themes/10up-block-theme/coverage
 themes/10up-block-theme/coverage-report
 themes/10up-block-theme/.phpunit.cache/test-results
 themes/10up-block-theme/.phpunit.result.cache
+themes/10up-block-theme/coverage.xml
