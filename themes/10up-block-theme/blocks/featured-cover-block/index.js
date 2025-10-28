@@ -1,4 +1,5 @@
-import React from 'react'; // ✅ Required for JSX
+// eslint-disable-next-line
+import React from 'react';
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 import Edit from './edit';
