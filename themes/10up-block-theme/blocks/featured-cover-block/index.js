@@ -1,3 +1,4 @@
+import React from 'react'; // ✅ Required for JSX
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 import Edit from './edit';
