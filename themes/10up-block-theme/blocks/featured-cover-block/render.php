@@ -2,7 +2,7 @@
 /**
  * Hero block with featured image background, site title, and taxonomies.
  *
- * @package myplugin\Blocks\featured-block-cover
+ * @package myplugin\Blocks\featured-cover-block
  *
  * @var array    $attributes Block attributes.
  * @var string   $content    Inner block content (not used here, but kept for flexibility).
@@ -28,7 +28,7 @@ if ( false === $featured_image_url ) {
 <div <?php echo $outer_div; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="overlay" <?php echo $background_color ? 'style="background-color:' . esc_attr( $background_color ) . ';"' : ''; ?>></div>
 	<?php if ( ! empty( $content ) ) : ?>
-			<div class="featured-block-cover__inner-content">
+			<div class="featured-cover-block__inner-content">
 				<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		<?php endif; ?>

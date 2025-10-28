@@ -26,7 +26,7 @@ const Edit = ({ attributes }) => {
 	return (
 		<div {...blockProps}>
 			<div className="overlay" style={overlayStyle} />
-			<div className="featured-block-cover__inner-content">
+			<div className="featured-cover-block__inner-content">
 				<InnerBlocks />
 			</div>
 		</div>
